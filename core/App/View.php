@@ -12,7 +12,7 @@ class View
 
 
                     ob_start();
-                    require_once ("templates/${templateName}.html.php");
+                    require_once ("templates/$templateName.html.php");
 
                 $pageContent = ob_get_clean();
 

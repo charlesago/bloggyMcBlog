@@ -5,7 +5,8 @@ namespace App;
 class Kernel
 {
 
-    public static function run(){
+    public static function run(): void
+    {
 
         $type = "post";
         $action = "index";

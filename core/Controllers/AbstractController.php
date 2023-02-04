@@ -7,6 +7,8 @@ use Attributes\DefaultEntity;
 use Attributes\TargetEntity;
 use Attributes\TargetRepository;
 
+
+
 class AbstractController
 {
 
@@ -29,7 +31,7 @@ class AbstractController
 
         $attributes = $reflect->getAttributes(DefaultEntity::class);
 
-        return $attributes[0]->getArguments()["entityName"];
+        return $attributes->getArguments()["entityName"];
     }
 
     protected function getRepository($entityName){
@@ -38,7 +40,8 @@ class AbstractController
 
         $attributes = $reflect->getAttributes(TargetRepository::class);
 
-        $repoName = $attributes[0]->getArguments()["repositoryName"];
+        /** @var TYPE_NAME $attributes */
+        $repoName = $attributes->getArguments()["repositoryName"];
 
         return new $repoName();
 

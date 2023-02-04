@@ -15,5 +15,4 @@ class TargetEntity
     {
         $this->entityName = $entityName;
     }
-
-}
+ }
