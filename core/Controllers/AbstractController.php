@@ -21,7 +21,7 @@ class AbstractController
 
     public function __construct()
     {
-        $this->defaultEntity = new $this->defaultEntityName();
+
 
         $this->repository = $this->getRepository($this->resolveDefaultEntityName());
     }
@@ -31,8 +31,9 @@ class AbstractController
 
         $attributes = $reflect->getAttributes(DefaultEntity::class);
 
-        return $attributes->getArguments()["entityName"];
+        return $attributes[0]->getArguments()["entityName"];
     }
+
 
     protected function getRepository($entityName){
 
@@ -40,12 +41,12 @@ class AbstractController
 
         $attributes = $reflect->getAttributes(TargetRepository::class);
 
-        /** @var TYPE_NAME $attributes */
-        $repoName = $attributes->getArguments()["repositoryName"];
+        $repoName = $attributes[0]->getArguments()["repositoryName"];
 
         return new $repoName();
 
     }
+
 
 
     public function render($template, $data){

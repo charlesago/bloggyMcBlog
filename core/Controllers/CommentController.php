@@ -5,6 +5,7 @@ namespace Controllers;
 use Entity\Comment;
 use Entity\Post;
 
+
 class CommentController extends AbstractController
 {
     protected string $defaultEntityName = Comment::class;
